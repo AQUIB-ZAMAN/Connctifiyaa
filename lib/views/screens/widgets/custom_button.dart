@@ -4,7 +4,7 @@ import '../../../utilities/colors.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed;
+  final onPressed;
 
   CustomButton({
     required this.text,
@@ -23,7 +23,7 @@ class CustomButton extends StatelessWidget {
             50,
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(30),
           ),
         ),
         onPressed: onPressed,

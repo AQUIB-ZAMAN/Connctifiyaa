@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../../controllers/auth_controller.dart';
 import './widgets/custom_button.dart';
+import 'home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   final AuthController authController = AuthController();
+  LoginScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +26,14 @@ class LoginScreen extends StatelessWidget {
             child: Image.asset('assets/images/onboarding.jpg'),
           ),
           CustomButton(
-            text: 'Login',
-            onPressed: authController.signInWithGoogle(),
+            text: 'Login With Google',
+            onPressed: () {
+              authController.signInWithGoogle();
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (BuildContext context) {
+                return HomeScreen();
+              }));
+            },
           ),
         ],
       ),
