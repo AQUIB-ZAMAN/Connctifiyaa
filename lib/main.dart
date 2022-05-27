@@ -9,9 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Connectifyaa',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.dark().copyWith(),
       home: LoginScreen(),
     );
   }
