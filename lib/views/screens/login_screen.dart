@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../controllers/auth_controller.dart';
 import './widgets/custom_button.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen();
+  final AuthController authController = AuthController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class LoginScreen extends StatelessWidget {
           ),
           CustomButton(
             text: 'Login',
+            onPressed: authController.signInWithGoogle(),
           ),
         ],
       ),

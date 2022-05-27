@@ -4,9 +4,11 @@ import '../../../utilities/colors.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
+  final VoidCallback onPressed;
 
   CustomButton({
     required this.text,
+    required this.onPressed,
   });
 
   @override
@@ -24,7 +26,7 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           text,
           style: TextStyle(
