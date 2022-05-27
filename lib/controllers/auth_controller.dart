@@ -26,6 +26,8 @@ class AuthController {
     // check if the user is null or not, also we dont
     // want to save the user everytime, we need to
     // save the user only once
+
+    //if user is not null and user is a  new user
     if (user != null) {
       if (userCredential.additionalUserInfo!.isNewUser) {
         firestore.collection('users').doc(user.uid).set({
