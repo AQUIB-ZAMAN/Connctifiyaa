@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1086955769573",
+    "project_id": "connectifiyaa",
+    "storage_bucket": "connectifiyaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1086955769573:android:dfc09eb072acd354f08e0c",
+        "android_client_info": {
+          "package_name": "com.aquibzaman.connectify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1086955769573-u4s93b0uni4fn38aienfn8hvuch7fg17.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aquibzaman.connectify",
+            "certificate_hash": "110abec0ee43bcbf77abe7964e5122dbece00f2d"
+          }
+        },
+        {
+          "client_id": "1086955769573-4ok11nm5l2jmgm5k8acl7gsg36a7scel.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnD9o2Y8LdCAu_0Nb_ZYrHRiCdLA4y2Jc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1086955769573-4ok11nm5l2jmgm5k8acl7gsg36a7scel.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
