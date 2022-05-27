@@ -1,4 +1,6 @@
 import 'package:connectify/utilities/colors.dart';
+import 'package:connectify/views/screens/history.dart';
+import 'package:connectify/views/screens/meeting_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -8,12 +10,27 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int pageIndex = 0;
+  final pages = [
+    MeetingScreen(),
+    HistoryScreen(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("HomeScreen"),
+      appBar: AppBar(
+        backgroundColor: backgroundColor,
+        elevation: 0,
+        title: Center(
+          child: Text(
+            'Meet and Chat',
+            style: TextStyle(
+              fontSize: 19,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
@@ -44,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+      body: pages[pageIndex],
     );
   }
 }
