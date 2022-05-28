@@ -1,6 +1,8 @@
 import 'package:connectify/utilities/colors.dart';
+import 'package:connectify/views/screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'controllers/auth_controller.dart';
 import 'views/screens/login_screen.dart';
 
 void main() async {
@@ -20,7 +22,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
       ),
-      home: LoginScreen(),
+      home: StreamBuilder(
+          stream: AuthController().authChanges,
+          builder: (context, snapshot) {
+            // snapshot has access to all the data in firebase.
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+            if (snapshot.hasData)
+              return HomeScreen();
+            else
+              return LoginScreen();
+          }),
     );
   }
 }
