@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
       home: StreamBuilder(
           stream: AuthController().authChanges,
           builder: (context, snapshot) {
+            // snapshot has access to all the data in firebase.
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(
                 child: CircularProgressIndicator(),
