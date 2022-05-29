@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.connectify">
+    package="com.aquibzaman.connectify"
+    xmlns:tools="http://schemas.android.com/tools">
    <application
+        tools:replace="android:label"
         android:label="connectify"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">

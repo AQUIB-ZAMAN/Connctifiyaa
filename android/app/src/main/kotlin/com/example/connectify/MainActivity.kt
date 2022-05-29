@@ -1,4 +1,4 @@
-package com.example.connectify
+package com.aquibzaman.connectify
 
 import io.flutter.embedding.android.FlutterActivity
 
