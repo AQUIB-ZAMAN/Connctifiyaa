@@ -32,5 +32,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <service
+         android:name ="org.jitsi.meet.sdk.ConnectionService"
+         android:exported="true" />
     </application>
 </manifest>
