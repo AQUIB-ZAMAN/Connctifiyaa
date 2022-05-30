@@ -1,7 +1,35 @@
+import 'dart:math';
+
+import 'package:connectify/views/screens/video_call_screen.dart';
 import 'package:connectify/views/screens/widgets/reuseable_icon.dart';
 import 'package:flutter/material.dart';
 
-class MeetingScreen extends StatelessWidget {
+import '../../controllers/jitsiMeet_controller.dart';
+
+class MeetingScreen extends StatefulWidget {
+  @override
+  State<MeetingScreen> createState() => _MeetingScreenState();
+}
+
+class _MeetingScreenState extends State<MeetingScreen> {
+  final JitsiMeetController jitsiController = JitsiMeetController();
+
+  createNewMeeting() {
+    var random = Random();
+    String roomName = (random.nextInt(10000000) + 10000000).toString();
+    jitsiController.createMeeting(
+      roomName: roomName,
+      isAudioMuted: true,
+      isVideoMuted: true,
+    );
+  }
+
+  joinMeeting() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+      return VideoCallScreen();
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,17 +38,15 @@ class MeetingScreen extends StatelessWidget {
           Row(
             children: [
               ReuseableIcon(
-                  icon: Icons.videocam,
-                  text: "New Meeting",
-                  onPressed: () {
-                    print("New meeting");
-                  }),
+                icon: Icons.videocam,
+                text: "New Meeting",
+                onPressed: createNewMeeting,
+              ),
               ReuseableIcon(
-                  icon: Icons.add_box_rounded,
-                  text: "Join Meeting",
-                  onPressed: () {
-                    print("New meeting");
-                  }),
+                icon: Icons.add_box_rounded,
+                text: "Join Meeting",
+                onPressed: joinMeeting,
+              ),
               ReuseableIcon(
                   icon: Icons.calendar_today,
                   text: "Schedule",
