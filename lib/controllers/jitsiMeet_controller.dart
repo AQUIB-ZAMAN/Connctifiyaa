@@ -10,6 +10,7 @@ class JitsiMeetController {
     required String roomName,
     required bool isAudioMuted,
     required bool isVideoMuted,
+    String? username = '',
   }) async {
     try {
       FeatureFlag featureFlag = FeatureFlag();
@@ -17,8 +18,9 @@ class JitsiMeetController {
       featureFlag.resolution = FeatureFlagVideoResolution
           .MD_RESOLUTION; // Limit video resolution to 360p
 
+      if (username!.isEmpty) username = authController.user!.displayName;
       var options = JitsiMeetingOptions(room: roomName)
-        ..userDisplayName = authController.user!.displayName
+        ..userDisplayName = username
         ..userEmail = authController.user!.email
         ..userAvatarURL = authController.user!.photoURL // or .png
         ..audioMuted = isAudioMuted
