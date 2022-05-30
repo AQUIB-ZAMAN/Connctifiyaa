@@ -2,9 +2,11 @@ import 'package:jitsi_meet/feature_flag/feature_flag.dart';
 import 'package:jitsi_meet/jitsi_meet.dart';
 
 import 'auth_controller.dart';
+import 'firestore_controller.dart';
 
 class JitsiMeetController {
   final AuthController authController = AuthController();
+  final FirestoreController firestoreController = FirestoreController();
 
   createMeeting({
     required String roomName,
@@ -25,7 +27,7 @@ class JitsiMeetController {
         ..userAvatarURL = authController.user!.photoURL // or .png
         ..audioMuted = isAudioMuted
         ..videoMuted = isVideoMuted;
-
+      firestoreController.addMeetingToFirestore(roomName);
       await JitsiMeet.joinMeeting(options);
     } catch (error) {
       print("error: $error");
