@@ -24,11 +24,10 @@ class _MeetingScreenState extends State<MeetingScreen> {
     );
   }
 
-  joinMeeting(){
-    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+  joinMeeting() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
       return VideoCallScreen();
-    })
-    )
+    }));
   }
 
   @override
@@ -44,9 +43,9 @@ class _MeetingScreenState extends State<MeetingScreen> {
                 onPressed: createNewMeeting,
               ),
               ReuseableIcon(
-                  icon: Icons.add_box_rounded,
-                  text: "Join Meeting",
-                  onPressed: joinMeeting,
+                icon: Icons.add_box_rounded,
+                text: "Join Meeting",
+                onPressed: joinMeeting,
               ),
               ReuseableIcon(
                   icon: Icons.calendar_today,

@@ -1,8 +1,29 @@
+import 'package:connectify/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 
 import '../../utilities/colors.dart';
 
-class VideoCallScreen extends StatelessWidget {
+class VideoCallScreen extends StatefulWidget {
+  @override
+  State<VideoCallScreen> createState() => _VideoCallScreenState();
+}
+
+class _VideoCallScreenState extends State<VideoCallScreen> {
+  late TextEditingController meetingIdController;
+
+  late TextEditingController nameController;
+
+  final AuthController authController = AuthController();
+
+  @override
+  void initState() {
+    meetingIdController = TextEditingController();
+    nameController =
+        TextEditingController(text: authController.user!.displayName);
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +41,7 @@ class VideoCallScreen extends StatelessWidget {
         ),
         body: Column(children: [
           TextField(
+            controller: meetingIdController,
             keyboardType: TextInputType.number,
             maxLines: 1,
             decoration: InputDecoration(
@@ -35,6 +57,7 @@ class VideoCallScreen extends StatelessWidget {
             height: 15,
           ),
           TextField(
+            controller: nameController,
             keyboardType: TextInputType.number,
             maxLines: 1,
             decoration: InputDecoration(
