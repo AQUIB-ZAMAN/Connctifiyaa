@@ -100,7 +100,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
             InkWell(
               onTap: joinMeeting,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Text('Join',
                     style:
                         TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
