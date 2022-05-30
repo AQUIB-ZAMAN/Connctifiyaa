@@ -1,5 +1,4 @@
 import 'package:connectify/utilities/colors.dart';
-import 'package:connectify/views/screens/history.dart';
 import 'package:connectify/views/screens/meeting_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +11,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int pageIndex = 0;
   final pages = [
     MeetingScreen(),
-    HistoryScreen(),
+    // HistoryScreen(),
   ];
 
   @override

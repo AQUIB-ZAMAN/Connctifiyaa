@@ -1,4 +1,5 @@
 import 'package:connectify/controllers/auth_controller.dart';
+import 'package:connectify/views/screens/widgets/meeting_option.dart';
 import 'package:flutter/material.dart';
 
 import '../../controllers/jitsiMeet_controller.dart';
@@ -16,12 +17,14 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
 
   final AuthController authController = AuthController();
   final JitsiMeetController jitsiController = JitsiMeetController();
+  bool isAudioMuted = true;
+  bool isVideoMuted = true;
 
   joinMeeting() {
     jitsiController.createMeeting(
       roomName: meetingIdController.text,
-      isAudioMuted: true,
-      isVideoMuted: true,
+      isAudioMuted: isAudioMuted,
+      isVideoMuted: isVideoMuted,
       username: nameController.text,
     );
   }
@@ -33,6 +36,18 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
         TextEditingController(text: authController.user!.displayName);
     // TODO: implement initState
     super.initState();
+  }
+
+  onAudioMuted(bool val) {
+    setState(() {
+      isAudioMuted = val;
+    });
+  }
+
+  onVideoMuted(bool val) {
+    setState(() {
+      isVideoMuted = val;
+    });
   }
 
   @override
@@ -70,7 +85,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
             ),
             TextField(
               controller: nameController,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.name,
               maxLines: 1,
               decoration: InputDecoration(
                 fillColor: secondaryBackgroundColor,
@@ -90,7 +105,16 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
                     style:
                         TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
               ),
-            )
+            ),
+            MeetingOption(
+                text: 'Mute Audio',
+                isMuted: isAudioMuted,
+                onChange: onAudioMuted),
+            SizedBox(height: 15),
+            MeetingOption(
+                text: 'Turn Off Video',
+                isMuted: isVideoMuted,
+                onChange: onVideoMuted),
           ],
         ));
   }
