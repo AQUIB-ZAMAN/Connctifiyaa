@@ -47,18 +47,18 @@ class _MeetingScreenState extends State<MeetingScreen> {
                 text: "Join Meeting",
                 onPressed: joinMeeting,
               ),
-              ReuseableIcon(
-                  icon: Icons.calendar_today,
-                  text: "Schedule",
-                  onPressed: () {
-                    print("New meeting");
-                  }),
-              ReuseableIcon(
-                  icon: Icons.arrow_upward_rounded,
-                  text: 'Share Screen',
-                  onPressed: () {
-                    print("New meeting");
-                  }),
+              // ReuseableIcon(
+              //     icon: Icons.calendar_today,
+              //     text: "Schedule",
+              //     onPressed: () {
+              //       print("New meeting");
+              //     }),
+              // ReuseableIcon(
+              //     icon: Icons.arrow_upward_rounded,
+              //     text: 'Share Screen',
+              //     onPressed: () {
+              //       print("New meeting");
+              //     }),
             ],
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           ),

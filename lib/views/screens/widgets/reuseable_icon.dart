@@ -20,7 +20,7 @@ class ReuseableIcon extends StatelessWidget {
             width: 50,
             decoration: BoxDecoration(
                 color: buttonColor,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(30),
                 border: Border.all(
                   color: Colors.white,
                   width: 2,

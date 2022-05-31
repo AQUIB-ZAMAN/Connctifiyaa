@@ -31,6 +31,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
 
   @override
   void initState() {
+    //called only once;used for 1 time initializations; used to initialize data that depends on a specific build context
     meetingIdController = TextEditingController();
     nameController =
         TextEditingController(text: authController.user!.displayName);
@@ -102,10 +103,14 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Text('Join',
-                    style:
-                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: buttonColor,
+                    )),
               ),
             ),
+            SizedBox(height: 20),
             MeetingOption(
                 text: 'Mute Audio',
                 isMuted: isAudioMuted,
